@@ -5,6 +5,7 @@ enum ButtonType {
 	Type1 = 1,
 	Type2 = 2,
 	Type3 = 3,
+	Type4 = 4,
 }
 type Props = {
 	type: ButtonType;
@@ -20,6 +21,8 @@ const icon = (() => {
 			return "fa-solid fa-map";
 		case ButtonType.Type3:
 			return "fa-brands fa-github";
+		case ButtonType.Type4:
+			return "fa-solid fa-map";
 		default:
 			return "fa-solid fa-question";
 	}
@@ -80,6 +83,13 @@ const icon = (() => {
 		filter: drop-shadow(8px 8px 1px #154b03);
 		&:hover {
 			filter: drop-shadow(0 0 0 #154b03);
+		}
+	}
+	.btn4 {
+		background-color: var(--discord);
+		filter: drop-shadow(8px 8px 1px #0049d1);
+		&:hover {
+			filter: drop-shadow(0 0 0 #0049d1);
 		}
 	}
 

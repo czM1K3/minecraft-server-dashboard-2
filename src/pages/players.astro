@@ -1,0 +1,16 @@
+---
+import PlayersInfo from "../components/PlayersInfo";
+import MinecraftApiController from "../controllers/minecraftApi";
+import Layout from "../layouts/Layout.astro";
+
+const playersData = await MinecraftApiController.PlayersRouteStripped();
+---
+
+<Layout title="Minecraft">
+	<div class="center">
+		<div class="animate__animated animate__jackInTheBox">
+			<h1>Players</h1>
+			<PlayersInfo client:visible data={playersData} />
+		</div>
+	</div>
+</Layout>

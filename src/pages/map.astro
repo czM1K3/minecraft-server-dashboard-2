@@ -1,0 +1,29 @@
+---
+import Button from "../components/Button.astro";
+import Layout from "../layouts/Layout.astro";
+
+const mapAddress = import.meta.env.MAP_ADDRESS ?? "http://localhost:8100";
+---
+
+<Layout title="Minecraft">
+	<div class="button">
+		<Button link="/" text="Back" type={4} />
+	</div>
+	<iframe
+		src={mapAddress}
+		class="iframe"></iframe>
+</Layout>
+
+<style lang="scss">
+	.button {
+		position: fixed;
+		z-index: 100;
+		top: -30px;
+		left: 150px;
+	}
+	.iframe {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+	}
+</style>
