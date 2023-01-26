@@ -1,0 +1,91 @@
+---
+import { defaultLogLevel } from "astro/dist/core/logger/core";
+
+enum ButtonType {
+	Type1 = 1,
+	Type2 = 2,
+	Type3 = 3,
+}
+type Props = {
+	type: ButtonType;
+	link: string;
+	text: string;
+};
+const { type, link, text } = Astro.props;
+const icon = (() => {
+	switch (type) {
+		case ButtonType.Type1:
+			return "fa-solid fa-user";
+		case ButtonType.Type2:
+			return "fa-solid fa-map";
+		case ButtonType.Type3:
+			return "fa-brands fa-github";
+		default:
+			return "fa-solid fa-question";
+	}
+})();
+---
+
+<a href={link}>
+	<button class={"btn"+type}>
+		<i class={icon}></i>{text}
+	</button>
+</a>
+
+<style lang="scss">
+	// Button Config
+	$border_radius: 0.3rem;
+	$border_radius_hover: 0.4rem;
+	$padding: 0.2rem 1rem;
+
+	button {
+		cursor: pointer;
+		border-radius: $border_radius;
+		font-family: "Poppins", sans-serif;
+		color: #fff;
+		margin: 1.5rem 1rem;
+		background-color: white;
+		border-style: none;
+		font-size: 1.5rem;
+		padding: $padding;
+		filter: drop-shadow(8px 8px 1px #e4e4e4);
+		transition: 0.1s;
+
+		&:hover {
+			border-radius: $border_radius_hover;
+			filter: drop-shadow(1px 1px 1px #e4e4e4);
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.btn1 {
+		background-color: var(--discord);
+		filter: drop-shadow(8px 8px 1px #2b3492);
+		&:hover {
+			filter: drop-shadow(0 0 0 #2b3492);
+		}
+	}
+	.btn2 {
+		background-color: var(--yellow);
+		filter: drop-shadow(8px 8px 1px #666008);
+		&:hover {
+			filter: drop-shadow(0 0 0 #666008);
+		}
+	}
+	.btn3 {
+		background-color: var(--green);
+		filter: drop-shadow(8px 8px 1px #154b03);
+		&:hover {
+			filter: drop-shadow(0 0 0 #154b03);
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		.buttons {
+			width: 80px;
+		}
+	}
+</style>

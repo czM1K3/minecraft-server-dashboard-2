@@ -1,0 +1,16 @@
+<div class="bg"></div>
+<style lang="scss">
+	$blur: 7px;
+	
+	.bg {
+		background-image: url("/background.png");
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		filter: blur($blur);
+		-webkit-filter: blur($blur);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+</style>

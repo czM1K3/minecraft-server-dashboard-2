@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MinecraftApiController from "../controllers/minecraftApi";
+import Button from "../components/Button.astro";
+import ServerInfo from "../components/ServerInfo";
+
+const serverData = await MinecraftApiController.ServerRouteStripped();
+
+const serverAddress = import.meta.env.SERVER_ADDRESS ?? "localhost";
+const serverName = import.meta.env.SERVER_NAME ?? "My Server name";
+---
+
+<Layout title="Minecraft">
+	<div class="center">
+		<div class="animate__animated animate__jackInTheBox">
+			<h1>{serverName}</h1>
+			<!--- Server Name -->
+			<p>Join at: {serverAddress}</p>
+			<ServerInfo client:visible data={serverData} />
+			<div class="animate__animated animate__bounceIn animate__delay-1s">
+				<Button type={1} link="/players" text="Players" />
+				<Button type={2} link="/map" text="Map" />
+				<Button type={3} link="https://github.com/czM1K3" text="GitHub" />
+			</div>
+		</div>
+	</div>
+</Layout>
