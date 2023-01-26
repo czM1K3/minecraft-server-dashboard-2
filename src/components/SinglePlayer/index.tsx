@@ -11,7 +11,7 @@ type PlayerInfoProps = {
 
 const PlayerInfo: FunctionalComponent<PlayerInfoProps> = ({ data }) => {
 	return (
-		<div style={{ display: "flex", flexDirection: "column" }}>
+		<div style={{ display: "flex", flexDirection: "column", padding: "10px" }}>
 			<h2 style={{ margin: 0, fontSize: "3rem" }}>{data.displayName}</h2>
 			<Bar count={data.health} type={BarType.hearts} />
 			<Bar count={data.hunger} type={BarType.hunger} />

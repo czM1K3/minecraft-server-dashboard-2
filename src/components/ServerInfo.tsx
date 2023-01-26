@@ -2,6 +2,7 @@ import type { FunctionComponent } from "preact";
 import { useState, useEffect } from "preact/hooks";
 import type { StrippedServerRouteType } from "../types/minecraftApi";
 import { getTimestamp } from "../utils/timestamp";
+import { getVersion } from "../utils/version";
 
 type ServerInfoProps = {
 	data: StrippedServerRouteType | null;
@@ -33,7 +34,7 @@ const ServerInfo: FunctionComponent<ServerInfoProps> = ({ data }) => {
 	return (
 		<>
 			<p>Online players: {info ? info.onlinePlayers : "-"}/{info ? info.maxPlayers : "-"}</p>
-			<p>Version: {info ? info.version : "-"}</p>
+			<p>Version: {info ? getVersion(info.version) : "-"}</p>
 			<p>Uptime: {info ? getTimestamp(info.uptime) : "-"}</p>
 		</>
 	)

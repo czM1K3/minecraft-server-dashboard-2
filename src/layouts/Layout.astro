@@ -14,7 +14,7 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<link
 			rel="stylesheet"
@@ -30,7 +30,7 @@ const { title } = Astro.props;
 		<Particles />
 		<slot />
 		<script
-			src="https://kit.fontawesome.com/5acf4d9e80.js"
+			src="https://kit.fontawesome.com/b22e8e0cbf.js"
 			crossorigin="anonymous"
 		></script>
 	</body>
@@ -93,5 +93,21 @@ const { title } = Astro.props;
 	h1 {
 		font-size: 3rem;
 		font-weight: 800;
+	}
+
+	::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #3a3a3a;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: rgb(133, 133, 133);
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: rgb(218, 218, 218);
 	}
 </style>

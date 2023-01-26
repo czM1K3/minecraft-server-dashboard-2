@@ -1,6 +1,4 @@
 ---
-import { defaultLogLevel } from "astro/dist/core/logger/core";
-
 enum ButtonType {
 	Type1 = 1,
 	Type2 = 2,
@@ -22,7 +20,7 @@ const icon = (() => {
 		case ButtonType.Type3:
 			return "fa-brands fa-github";
 		case ButtonType.Type4:
-			return "fa-solid fa-map";
+			return "fa-solid fa-home";
 		default:
 			return "fa-solid fa-question";
 	}

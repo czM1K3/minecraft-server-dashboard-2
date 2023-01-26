@@ -1,4 +1,5 @@
 ---
+import Button from "../components/Button.astro";
 import PlayersInfo from "../components/PlayersInfo";
 import MinecraftApiController from "../controllers/minecraftApi";
 import Layout from "../layouts/Layout.astro";
@@ -7,6 +8,9 @@ const playersData = await MinecraftApiController.PlayersRouteStripped();
 ---
 
 <Layout title="Minecraft">
+	<div class="button">
+		<Button link="/" text="Back" type={4} />
+	</div>
 	<div class="center">
 		<div class="animate__animated animate__jackInTheBox">
 			<h1>Players</h1>
@@ -14,3 +18,11 @@ const playersData = await MinecraftApiController.PlayersRouteStripped();
 		</div>
 	</div>
 </Layout>
+
+<style lang="scss">
+	.button {
+		position: fixed;
+		top: -30px;
+		left: -10px;
+	}
+</style>
