@@ -1,20 +1,24 @@
 {
-  "name": "@example/basics",
-  "type": "module",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/deno": "^3.0.0",
-    "@astrojs/preact": "^1.2.0",
-    "astro": "^1.9.0",
-    "preact": "^10.11.3",
-    "sass": "1.32.1"
-  }
+	"name": "@example/basics",
+	"type": "module",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
+		"astro": "astro",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@astrojs/deno": "^3.0.0",
+		"@astrojs/preact": "^1.2.0",
+		"astro": "^1.9.0",
+		"preact": "^10.11.3",
+		"sass": "1.32.1"
+	},
+	"devDependencies": {
+		"prettier": "^2.8.3"
+	}
 }

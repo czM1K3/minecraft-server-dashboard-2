@@ -1,48 +1,48 @@
 name: Build
 
 on:
-  push:
-    branches:
-      - 'master'
-    paths-ignore:
-      - 'README.md'
-      - '.vscode/**.*'
-      - '.github/assets/**.*'
+ push:
+  branches:
+   - "master"
+  paths-ignore:
+   - "README.md"
+   - ".vscode/**.*"
+   - ".github/assets/**.*"
 
-permissions: 
-  packages: write
+permissions:
+ packages: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v2
-      - name: Login to GHCR
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Docker meta
-        id: containerMeta
-        uses: docker/metadata-action@v4
-        with:
-          images: |
-            ghcr.io/czm1k3/minecraft-server-dashboard-2
-          tags: |
-            type=raw,value=latest
-            type=sha,enable=true,priority=100,prefix=,suffix=,format=short
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ${{ steps.containerMeta.outputs.tags }}
-          labels: ${{ steps.containerMeta.outputs.labels }}
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Checkout
+     uses: actions/checkout@v2
+   - name: Set up QEMU
+     uses: docker/setup-qemu-action@v2
+   - name: Set up Docker Buildx
+     id: buildx
+     uses: docker/setup-buildx-action@v2
+   - name: Login to GHCR
+     uses: docker/login-action@v2
+     with:
+      registry: ghcr.io
+      username: ${{ github.repository_owner }}
+      password: ${{ secrets.GITHUB_TOKEN }}
+   - name: Docker meta
+     id: containerMeta
+     uses: docker/metadata-action@v4
+     with:
+      images: |
+       ghcr.io/czm1k3/minecraft-server-dashboard-2
+      tags: |
+       type=raw,value=latest
+       type=sha,enable=true,priority=100,prefix=,suffix=,format=short
+   - name: Build and push
+     uses: docker/build-push-action@v3
+     with:
+      context: .
+      platforms: linux/amd64,linux/arm64
+      push: true
+      tags: ${{ steps.containerMeta.outputs.tags }}
+      labels: ${{ steps.containerMeta.outputs.labels }}

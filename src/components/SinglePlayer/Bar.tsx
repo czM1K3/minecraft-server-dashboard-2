@@ -1,5 +1,6 @@
 import type { FunctionalComponent } from "preact";
 import { useMemo } from "preact/hooks";
+import type { CSSProperties } from "preact/compat";
 
 export enum BarType {
 	hunger = "hunger",
@@ -11,11 +12,11 @@ type BarProps = {
 	type: BarType;
 };
 
-const imageProperties = (mirror: boolean) => ({
+const imageProperties = (mirror: boolean): CSSProperties => ({
 	imageRendering: "pixelated",
 	width: "20px",
 	padding: "1px",
-	transform: mirror?`scaleX(-1)`:undefined,
+	transform: mirror ? `scaleX(-1)` : undefined,
 });
 
 const Bar: FunctionalComponent<BarProps> = ({ count, type }) => {
@@ -38,7 +39,10 @@ const Bar: FunctionalComponent<BarProps> = ({ count, type }) => {
 				/>
 			))}
 			{counts.hasHalf && (
-				<img src={`/assets/half-${type}.png`} style={imageProperties(type === "hunger")} />
+				<img
+					src={`/assets/half-${type}.png`}
+					style={imageProperties(type === "hunger")}
+				/>
 			)}
 			{counts.empty.map((_item, index) => (
 				<img
