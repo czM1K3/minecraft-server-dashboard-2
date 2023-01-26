@@ -1,10 +1,10 @@
 FROM node:18-alpine as builder
 
-ENV SERVER_NAME="My Minecraft Server"
-ENV SERVER_ADDRESS=localhost
-ENV SERVERTAP_ADDRESS=http://localhost:4567
-ENV SERVERTAP_KEY=secret
-ENV MAP_ADDRESS=http://localhost:8100
+ENV SERVER_NAME="My Minecraft Server" \
+	SERVER_ADDRESS=localhost \
+	SERVERTAP_ADDRESS=http://localhost:4567 \
+	SERVERTAP_KEY=secret \
+	MAP_ADDRESS=http://localhost:8100
 
 WORKDIR /app
 COPY package.json yarn.lock .
