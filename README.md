@@ -12,7 +12,7 @@ keyAuth in servertap, so please don't expose it to the internet.
 
 ## Example
 
-![Example](.github/assets/image.jpg)
+![Example](.github/assets/screenshot.png)
 
 ## Requirements
 
